@@ -23,6 +23,9 @@
     <Reference Include="BepInEx.Preloader">
       <HintPath>libs\BepInEx\BepInEx.Preloader.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>libs\com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Facepunch.Steamworks">
       <HintPath>libs\Facepunch.Steamworks.dll</HintPath>
     </Reference>
