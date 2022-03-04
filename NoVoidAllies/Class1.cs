@@ -6,7 +6,7 @@ using System;
 
 namespace NoVoidAllies
 {
-    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.1")]
+    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.3")]
     public class NoVoidAllies : BaseUnityPlugin
     {
         public void Awake()
