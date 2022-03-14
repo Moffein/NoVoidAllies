@@ -6,7 +6,7 @@ using System;
 
 namespace NoVoidAllies
 {
-    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.3")]
+    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.4")]
     public class NoVoidAllies : BaseUnityPlugin
     {
         public void Awake()
@@ -34,6 +34,25 @@ namespace NoVoidAllies
                 c.EmitDelegate<Func<bool, CharacterBody, bool>>((playerControlled, body) =>
                 {
                     return playerControlled || (body.teamComponent && body.teamComponent.teamIndex == TeamIndex.Player);
+                });
+
+                //Fix allied Ghost Infestors creating new Void Team monsters
+                c.GotoNext(
+                     x => x.MatchCallvirt<CharacterMaster>("set_teamIndex")
+                    );
+                c.Emit(OpCodes.Ldarg_0);
+                c.EmitDelegate<Func<TeamIndex, EntityStates.VoidInfestor.Infest, TeamIndex>>((team, self) =>
+                {
+                    return self.GetTeam();
+                });
+
+                c.GotoNext(
+                     x => x.MatchCallvirt<TeamComponent>("set_teamIndex")
+                    );
+                c.Emit(OpCodes.Ldarg_0);
+                c.EmitDelegate<Func<TeamIndex, EntityStates.VoidInfestor.Infest, TeamIndex>>((team, self) =>
+                {
+                    return self.GetTeam();
                 });
             };
         }
