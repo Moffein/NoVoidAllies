@@ -4,9 +4,17 @@ using MonoMod.Cil;
 using RoR2;
 using System;
 
+namespace R2API.Utils
+{
+    [AttributeUsage(AttributeTargets.Assembly)]
+    public class ManualNetworkRegistrationAttribute : Attribute
+    {
+    }
+}
+
 namespace NoVoidAllies
 {
-    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.4")]
+    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.5")]
     public class NoVoidAllies : BaseUnityPlugin
     {
         public void Awake()
