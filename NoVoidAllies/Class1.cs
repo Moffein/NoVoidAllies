@@ -14,7 +14,7 @@ namespace R2API.Utils
 
 namespace NoVoidAllies
 {
-    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.5")]
+    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.6")]
     public class NoVoidAllies : BaseUnityPlugin
     {
         public void Awake()
@@ -41,7 +41,7 @@ namespace NoVoidAllies
                 c.Emit(OpCodes.Ldloc_3);
                 c.EmitDelegate<Func<bool, CharacterBody, bool>>((playerControlled, body) =>
                 {
-                    return playerControlled || (body.teamComponent && body.teamComponent.teamIndex == TeamIndex.Player);
+                    return playerControlled || (body.teamComponent && body.teamComponent.teamIndex == TeamIndex.Player) || body.isBoss;
                 });
 
                 //Fix allied Ghost Infestors creating new Void Team monsters
