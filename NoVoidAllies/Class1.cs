@@ -14,7 +14,7 @@ namespace R2API.Utils
 
 namespace NoVoidAllies
 {
-    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.6")]
+    [BepInPlugin("com.Moffein.NoVoidAllies", "No Void Allies", "1.0.7")]
     public class NoVoidAllies : BaseUnityPlugin
     {
         public void Awake()
